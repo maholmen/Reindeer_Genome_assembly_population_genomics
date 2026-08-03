@@ -16,7 +16,7 @@
 
 #variables
 dir=/cluster/projects/nn10039k/projects/CWD/maholmen/POPULATION_GENETICS/MAC_2
-BED=MERGED_3_FILTERED_MAC_10%_BED
+BED=MERGED_3_FILTERED_MAC.PLINK_FILTERED
 
 #activate module
 module --quiet purge  # Reset the modules to the system default
