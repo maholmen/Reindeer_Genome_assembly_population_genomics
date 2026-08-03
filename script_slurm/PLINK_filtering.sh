@@ -28,7 +28,7 @@ plink --vcf $VCF --allow-extra-chr --make-bed \
   --double-id \
   --set-missing-var-ids @:# \
   --vcf-half-call missing \
-  --not-chr chromosome_X_OX460343.1_557,chromosome_Y_OX460344.1_557 \
+  --not-chr chromosome_X_OX460343.1_557 chromosome_Y_OX460344.1_557 \
   --out MERGED_3_FILTERED_MAC_10%_BED
 
 
@@ -37,7 +37,7 @@ plink --bfile MERGED_3_FILTERED_MAC_10%_BED --allow-extra-chr --make-bed \
   --mind 0.1 \
   --hwe 1e-5 \
   --snps-only \
-  --not-chr chromosome_X_OX460343.1_557,chromosome_Y_OX460344.1_557 \
+  --not-chr chromosome_X_OX460343.1_557 chromosome_Y_OX460344.1_557 \
   --out MERGED_3_FILTERED_MAC.PLINK_FILTERED
 
 # Filtering for MDS and FST
