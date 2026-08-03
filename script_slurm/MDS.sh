@@ -30,7 +30,7 @@ plink --bfile $BED --allow-extra-chr --read-genome $NAME.INCLUDING_IC.genome --c
 #modify output for downstream analysis
 sed 's/\$//' $NAME.INCLUDING_IC.mds | awk '{$1=$1; OFS="\t"; print}' > $NAME.INCLUDING_IC.mds.mod
 
-
+# running without Icelandic popualtion
 plink --bfile $BED --genome --allow-extra-chr --remove /cluster/projects/nn10039k/projects/CWD/maholmen/POPULATION_GENETICS/MAC_2/subset/IC_subset.txt --out $NAME.WITHOUT_IC
 plink --bfile $BED --allow-extra-chr --read-genome $NAME.WITHOUT_IC.genome --remove /cluster/projects/nn10039k/projects/CWD/maholmen/POPULATION_GENETICS/MAC_2/subset/IC_subset.txt --cluster --mds-plot 2 --out $NAME.WITHOUT_IC
 
