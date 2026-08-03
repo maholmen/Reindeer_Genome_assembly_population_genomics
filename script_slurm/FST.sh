@@ -14,8 +14,8 @@
 
 
 #variables
-dir=/cluster/projects/nn10039k/projects/CWD/maholmen/POPULATION_GENETICS/MAC_2/FST/HET_0.01
-BED=/cluster/projects/nn10039k/projects/CWD/maholmen/POPULATION_GENETICS/MAC_2/HET_geno_0.01/HET
+dir=/cluster/projects/nn10039k/projects/CWD/maholmen/POPULATION_GENETICS/REVISION_JUNE_2026/FST
+BED=/cluster/projects/nn10039k/projects/CWD/maholmen/POPULATION_GENETICS/REVISION_JUNE_2026/MERGED_3_FILTERED_MAC.LD_PRUNED
 
 #activate module
 module --quiet purge  # Reset the modules to the system default
