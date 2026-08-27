@@ -44,87 +44,129 @@ summary(roh_all)
 roh_all$FID <- factor(roh_all$FID,
                       levels = c("FI", "FR", "VA", "LO", "RH", "IC"))
 
-my_colors <- c("#f0c571", "#36b700", "#0b81a2", "#e25759", "#7e4794","#59a89c")
+my_colors <- c("#F5C710", "#009e73", "#0072b2", "#D55E00", "#cc79a7", "#56b4e9")
+
+boxplot_theme <- function() {
+  list(
+    scale_fill_manual(values = my_colors),
+    theme_minimal(base_family = "sans"),
+    theme(
+      legend.position  = "none",
+      axis.title.y     = element_text(size = 9, family = "sans"),
+      axis.text.y      = element_text(size = 8, family = "sans"),
+      axis.text.x      = element_text(size = 8, family = "sans"),
+      axis.line        = element_line(linewidth = 0.5),
+      axis.ticks       = element_line(linewidth = 0.5),
+      panel.grid.major = element_line(linewidth = 0.5, color = "grey90"),
+      panel.grid.minor = element_blank(),
+      panel.background = element_rect(fill = "white", color = NA),
+      plot.margin      = unit(c(2, 2, 2, 2), "mm")
+    ),
+    scale_y_continuous(n.breaks = 10),
+    xlab("")
+  )
+}
 
 
-p1 <- ggplot(roh_all, aes(x = FID, y = FROH_500, fill = FID)) +
-  geom_violin(trim = T, alpha = 0.8, color = "black", linewidth = 0.6, width = 1) +
-  scale_fill_manual(values = my_colors) +
-  theme_minimal() +
-  theme(
-    legend.position = "none",
-    axis.title.y = element_text(size = 12),
-    axis.text.y  = element_text(size = 12),
-    axis.text.x  = element_text(size = 12)
+p3 <- ggplot(roh_all, aes(x = FID, y = FROH_500, fill = FID)) +
+  geom_boxplot(
+    alpha = 0.8,
+    color = "black",
+    linewidth = 0.5,
+    width = 0.8,
+    outlier.shape = NA
+  ) +
+  geom_jitter(
+    aes(fill = FID),
+    shape = 21,
+    color = "black",
+    size = 1.5,
+    stroke = 0.3,
+    width = 0.15
   ) +
   coord_cartesian(ylim = c(0, 0.34)) +
-  scale_y_continuous(n.breaks = 10) +
   ylab(expression(F[ROH] >= 500 ~ Kb)) +
-  xlab("")
+  boxplot_theme()
 
-
-
-p2 <- ggplot(roh_all, aes(x = FID, y = FROH_1mb, fill = FID)) +
-  geom_violin(trim = T, alpha = 0.8, color = "black", linewidth = 0.6, width = 1) +
-  scale_fill_manual(values = my_colors) +
-  theme_minimal() +
-  theme(
-    legend.position = "none",
-    axis.title.y = element_text(size = 12),
-    axis.text.y  = element_text(size = 12),
-    axis.text.x  = element_text(size = 12)
+p4 <- ggplot(roh_all, aes(x = FID, y = FROH_1mb, fill = FID)) +
+  geom_boxplot(
+    alpha = 0.8,
+    color = "black",
+    linewidth = 0.5,
+    width = 0.8,
+    outlier.shape = NA
+  ) +
+  geom_jitter(
+    aes(fill = FID),
+    shape = 21,
+    color = "black",
+    size = 1.5,
+    stroke = 0.3,
+    width = 0.15
   ) +
   coord_cartesian(ylim = c(0, 0.34)) +
-  scale_y_continuous(n.breaks = 10) +
   ylab(expression(F[ROH] >= 1 ~ Mb)) +
-  xlab("")
+  boxplot_theme()
 
-
-p3 <- ggplot(roh_all, aes(x = FID, y = FROH_4mb, fill = FID)) +
-  geom_violin(trim = T, alpha = 0.8, color = "black", linewidth = 0.6, width = 1) +
-  scale_fill_manual(values = my_colors) +
-  theme_minimal() +
-  theme(
-    legend.position = "none",
-    axis.title.y = element_text(size = 12),
-    axis.text.y  = element_text(size = 12),
-    axis.text.x  = element_text(size = 12)
+p5 <- ggplot(roh_all, aes(x = FID, y = FROH_4mb, fill = FID)) +
+  geom_boxplot(
+    alpha = 0.8,
+    color = "black",
+    linewidth = 0.5,
+    width = 0.8,
+    outlier.shape = NA
+  ) +
+  geom_jitter(
+    aes(fill = FID),
+    shape = 21,
+    color = "black",
+    size = 1.5,
+    stroke = 0.3,
+    width = 0.15
   ) +
   coord_cartesian(ylim = c(0, 0.044)) +
-  scale_y_continuous(n.breaks = 10) +
   ylab(expression(F[ROH] >= 4 ~ Mb)) +
-  xlab("")
+  boxplot_theme()
 
-
-p4 <- ggplot(roh_all, aes(x = FID, y = FROH_8mb, fill = FID)) +
-  geom_violin(trim = T, alpha = 0.8, color = "black", linewidth = 0.6, width = 1) +
-  scale_fill_manual(values = my_colors) +
-  theme_minimal() +
-  theme(
-    legend.position = "none",
-    axis.title.y = element_text(size = 12),
-    axis.text.y  = element_text(size = 12),
-    axis.text.x  = element_text(size = 12)
+p6 <- ggplot(roh_all, aes(x = FID, y = FROH_8mb, fill = FID)) +
+  geom_boxplot(
+    alpha = 0.8,
+    color = "black",
+    linewidth = 0.5,
+    width = 0.8,
+    outlier.shape = NA
+  ) +
+  geom_jitter(
+    aes(fill = FID),
+    shape = 21,
+    color = "black",
+    size = 1.5,
+    stroke = 0.3,
+    width = 0.15
   ) +
   coord_cartesian(ylim = c(0, 0.044)) +
-  scale_y_continuous(n.breaks = 10) +
   ylab(expression(F[ROH] >= 8 ~ Mb)) +
-  xlab("")
+  boxplot_theme()
 
-library(patchwork)
-
-# combine plots next to each other
-combinel_plot <- (p1 | p2) / (p3 | p4)
-
+combinel_plot_2 <- (p3 | p4) / (p5 | p6)
 
 ggsave(
-  filename = "combined_plot_above_500.png",
-  plot = combinel_plot,
-  width = 9,      # width in inches
-  height = 9,      # height in inches
-  dpi = 300        # resolution in dots per inch
+  "figure4.pdf",
+  plot = combinel_plot_2,
+  width = 175,
+  height = 170,
+  units = "mm",
+  device = cairo_pdf
 )
 
+ggsave(
+  "FIGURE_4.jpg",
+  plot = combinel_plot_2,
+  width = 175,
+  height = 170,
+  units = "mm",
+  dpi = 600
+)
 
 froh_summary <- roh_all %>%
   group_by(FID) %>%
