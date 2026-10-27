@@ -1,3 +1,5 @@
+# This code was substantially generated with assistance from OpenAI's ChatGPT and subsequently reviewed and adapted by the author.
+
 # Making heatmap of Fst values using ggplot2
 setwd("~/00 Population genetics/Pulication material/FST")
 # Load libraries
